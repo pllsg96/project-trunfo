@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Form extends Component {
   render() {
     return (
+
       <form>
         <label htmlFor="name-input">
           Nome
@@ -79,18 +80,28 @@ class Form extends Component {
           >
             <option value="normal">Normal</option>
             <option value="raro">Raro</option>
-            <option value="muitoraro">Muito raro</option>
+            <option value="muito raro">Muito raro</option>
           </select>
         </label>
         <br />
 
         <label htmlFor="trunfo-input">
           Super Trunfo
-          <input type="checkbox" id="trunfo-input" data-testid="trunfo-input" />
+          <input
+            type="checkbox"
+            id="trunfo-input"
+            data-testid="trunfo-input"
+          />
         </label>
         <br />
 
-        <button type="submit" id="save" data-testid="save-button">Salvar</button>
+        <button
+          type="submit"
+          id="save"
+          data-testid="save-button"
+        >
+          Salvar
+        </button>
 
       </form>
     );
