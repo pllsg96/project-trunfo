@@ -21,7 +21,9 @@ class App extends Component {
 
   handleInput = ({ target }) => {
     console.log(target.value);
-    this.setState({ [target.name]: target.value });
+    this.setState({
+      [target.name]: target.value,
+    });
   }
 
   render() {

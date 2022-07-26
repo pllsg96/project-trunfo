@@ -11,7 +11,7 @@ class Card extends Component {
       cardAttr3, // --------> string
       cardImage, // --------> string
       cardRare, // ---------> string
-      cardTrunfo, // ---------> bool
+      cardTrunfo, // -------- > bool
     } = this.props;
     return (
       <div className="card__box">

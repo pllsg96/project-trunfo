@@ -108,6 +108,7 @@ class Form extends Component {
         <label htmlFor="rare-input">
           Raridade da carta
           <select
+            placeholder="Raridade"
             name="cardRare"
             id="rare-input"
             data-testid="rare-input"
