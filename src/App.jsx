@@ -4,25 +4,28 @@ import Card from './components/Card';
 
 class App extends Component {
   state = {
-    cardName: '', // ---------> string
-    cardDescription: '', // --> string
-    cardAttr1: '', // --------> string
-    cardAttr2: '', // --------> string
-    cardAttr3: '', // --------> string
-    cardImage: '', // --------> string
-    cardRare: '', // ---------> string
-    cardTrunfo: false, // ------> bool
-    // isSaveButtonDisabled: false, //bool
+    cardName: '', // -----------------> string
+    cardDescription: '', // ----------> string
+    cardAttr1: '', // ----------------> string
+    cardAttr2: '', // ----------------> string
+    cardAttr3: '', // ----------------> string
+    cardImage: '', // ----------------> string
+    cardRare: '', // -----------------> string
+    cardTrunfo: false, // ------------> bool
+    isSaveButtonDisabled: false, // --> bool
     // onInputChange, //func
     // onSaveButtonClick, // func
     // hasTrunfo: true, // bool
-
   };
+
+  checkIfCanEnable = () => {
+    if (cardName.length) console.log('foi');
+  }
 
   handleInput = ({ target }) => {
     console.log(target.value);
-    this.setState({
-      [target.name]: target.value,
+    this.setState({ [target.name]: target.value }, () => {
+      if (cardName.length === 0) isSaveButtonDisabled = 1; // Não entendi buflufas
     });
   }
 
@@ -36,6 +39,7 @@ class App extends Component {
       cardImage, // --------> string
       cardRare, // ---------> string
       cardTrunfo, // ---------> bool
+      isSaveButtonDisabled,
     } = this.state;
 
     return (
@@ -51,7 +55,7 @@ class App extends Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.handleInput }
-          // isSaveButtonDisabled={ isSaveButtonDisabled }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
           // onInputChange={ onInputChange }
           // onSaveButtonClick={ onSaveButtonClick }
           // hasTrunfo={ hasTrunfo }
