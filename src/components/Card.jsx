@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 class Card extends Component {
   render() {
     const {
-      cardName,
-      cardDescription,
-      cardAttr1,
-      cardAttr2,
-      cardAttr3,
-      cardImage,
-      cardRare,
-      cardTrunfo,
+      cardName, // ---------> string
+      cardDescription, // --> string
+      cardAttr1, // --------> string
+      cardAttr2, // --------> string
+      cardAttr3, // --------> string
+      cardImage, // --------> string
+      cardRare, // ---------> string
+      cardTrunfo, // ---------> bool
     } = this.props;
     return (
-      <div>
+      <div className="card__box">
         <h2 data-testid="name-card">{ cardName }</h2>
 
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />

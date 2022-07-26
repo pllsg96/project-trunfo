@@ -4,30 +4,38 @@ import Card from './components/Card';
 
 class App extends Component {
   state = {
-    cardName: '',
-    cardDescription: '',
-    cardAttr1: '',
-    cardAttr2: '',
-    cardAttr3: '',
-    cardImage: '',
-    cardRare: '',
-    cardTrunfo: false,
-    // hasTrunfo: true,
-    // isSaveButtonDisabled: false,
-    // onInputChange,
-    // onSaveButtonClick,
+    cardName: '', // ---------> string
+    cardDescription: '', // --> string
+    cardAttr1: '', // --------> string
+    cardAttr2: '', // --------> string
+    cardAttr3: '', // --------> string
+    cardImage: '', // --------> string
+    cardRare: '', // ---------> string
+    cardTrunfo: false, // ------> bool
+    // isSaveButtonDisabled: false, //bool
+    // onInputChange, //func
+    // onSaveButtonClick, // func
+    // hasTrunfo: true, // bool
+
   };
 
-  handleInput = (event) => {
-    console.log(event.target.value);
-    this.setState({ [event.target.name]: event.target.value });
+  handleInput = ({ target }) => {
+    console.log(target.value);
+    this.setState({ [target.name]: target.value });
   }
 
   render() {
     const {
-      cardName, cardDescription, cardAttr1,
-      cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo } = this.state;
+      cardName, // ---------> string
+      cardDescription, // --> string
+      cardAttr1, // --------> string
+      cardAttr2, // --------> string
+      cardAttr3, // --------> string
+      cardImage, // --------> string
+      cardRare, // ---------> string
+      cardTrunfo, // ---------> bool
+    } = this.state;
+
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -41,10 +49,10 @@ class App extends Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.handleInput }
-          // hasTrunfo={ hasTrunfo }
           // isSaveButtonDisabled={ isSaveButtonDisabled }
           // onInputChange={ onInputChange }
           // onSaveButtonClick={ onSaveButtonClick }
+          // hasTrunfo={ hasTrunfo }
 
         />
         <Card
