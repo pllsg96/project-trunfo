@@ -3,7 +3,7 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends Component {
-  state = { // O que seria este state exatamente? Ele esta atrelado ao setState?
+  state = {
     cardName: '', // -----------------> string
     cardDescription: '', // ----------> string
     cardAttr1: '', // ----------------> string
@@ -15,7 +15,7 @@ class App extends Component {
     isSaveButtonDisabled: true, // ---> bool
     // onInputChange, //func
     // onSaveButtonClick, // func
-    // hasTrunfo: true, // bool
+    hasTrunfo: false, // bool
     deckCards: [],
   };
 
@@ -23,6 +23,7 @@ class App extends Component {
   // Esta função que irá salvar a carta criada no deck.
   submitCardToDeck = (event) => {
     event.preventDefault();
+
     this.setState((previousState) => ({
       deckCards: [...previousState.deckCards, previousState],
       cardName: '',
@@ -35,6 +36,11 @@ class App extends Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
     }));
+
+    const { deckCards } = this.state;
+    const xomps = deckCards.some((cardInfo) => cardInfo.cardTrunfo === true);
+    if (xomps) this.setState({ hasTrunfo: true });
+    else this.setState({ hasTrunfo: false });
   }
 
   checkIfSaveCanEnable = () => {
@@ -72,10 +78,10 @@ class App extends Component {
   }
 
   handleInput = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {
-      this.checkIfSaveCanEnable();
-    });
-  }
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState(() => ({ [target.name]: value }), this.checkIfSaveCanEnable);
+  };
+  // this.setState({ [target.name]: target.value }, () => {
 
   render() {
     const {
@@ -88,6 +94,7 @@ class App extends Component {
       cardRare, // ---------> string
       cardTrunfo, // ---------> bool
       isSaveButtonDisabled,
+      hasTrunfo,
     } = this.state;
 
     return (
@@ -105,7 +112,7 @@ class App extends Component {
           onInputChange={ this.handleInput }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.submitCardToDeck }
-          // hasTrunfo={ hasTrunfo }
+          hasTrunfo={ hasTrunfo }
 
         />
         <Card

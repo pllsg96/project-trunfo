@@ -15,7 +15,7 @@ class Form extends Component {
       isSaveButtonDisabled, // --> bool
       onInputChange, // ---------> func
       onSaveButtonClick, // -----> func
-      // hasTrunfo, // ----------> bool
+      hasTrunfo, // -------------> bool
     } = this.props;
 
     return (
@@ -162,7 +162,7 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-  // hasTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
 
 };
 
