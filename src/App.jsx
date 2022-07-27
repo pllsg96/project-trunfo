@@ -3,7 +3,7 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends Component {
-  state = {
+  state = { // O que seria este state exatamente? Ele esta atrelado ao setState?
     cardName: '', // -----------------> string
     cardDescription: '', // ----------> string
     cardAttr1: '', // ----------------> string
@@ -12,11 +12,30 @@ class App extends Component {
     cardImage: '', // ----------------> string
     cardRare: '', // -----------------> string
     cardTrunfo: false, // ------------> bool
-    isSaveButtonDisabled: true, // --> bool
+    isSaveButtonDisabled: true, // ---> bool
     // onInputChange, //func
     // onSaveButtonClick, // func
     // hasTrunfo: true, // bool
+    deckCards: [],
   };
+
+  // this.state vai pegar o state todo
+  // Esta função que irá salvar a carta criada no deck.
+  submitCardToDeck = (event) => {
+    event.preventDefault();
+    this.setState((previousState) => ({
+      deckCards: [...previousState.deckCards, previousState],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+  }
 
   checkIfSaveCanEnable = () => {
     const {
@@ -85,8 +104,7 @@ class App extends Component {
           cardTrunfo={ cardTrunfo }
           onInputChange={ this.handleInput }
           isSaveButtonDisabled={ isSaveButtonDisabled }
-          // onInputChange={ onInputChange }
-          // onSaveButtonClick={ onSaveButtonClick }
+          onSaveButtonClick={ this.submitCardToDeck }
           // hasTrunfo={ hasTrunfo }
 
         />

@@ -12,7 +12,7 @@ class Card extends Component {
       cardImage, // --------> string
       cardRare, // ---------> string
       cardTrunfo, // -------- > bool
-    } = this.props;
+    } = this.props; // Aqui estamos buscando as props de onde? Do App, suponho.
     return (
       <div className="card__box">
         <h2 data-testid="name-card">{ cardName }</h2>
