@@ -97,6 +97,7 @@ class App extends Component {
       cardTrunfo, // ---------> bool
       isSaveButtonDisabled,
       hasTrunfo,
+      deckCards,
     } = this.state;
 
     return (
