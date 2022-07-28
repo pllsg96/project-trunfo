@@ -3,12 +3,12 @@
   border: solid 2px black;
   border-radius: 5%;
   height: 300px;
-  width: 200px;
   font-size: 10px;
+  width: 200px;
   text-align: center;}
 
 .image-card {
-  max-width: 180px;
   border: solid 2px black;
   border-radius: 5%;
+  max-width: 180px;
 }
