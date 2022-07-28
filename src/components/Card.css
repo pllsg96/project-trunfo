@@ -1,9 +1,14 @@
-.card__box{
-  border: solid 2px black;
+.card__box {
   background-color: antiquewhite;
-  width: 200px;
+  border: solid 2px black;
+  border-radius: 5%;
   height: 300px;
-  border-radius: 10%;
-  font-size: 14px;
-  ;
+  width: 200px;
+  font-size: 10px;
+  text-align: center;}
+
+.image-card{
+  max-width: 180px;
+  border: solid 2px black;
+  border-radius: 5%;
 }
