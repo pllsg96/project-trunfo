@@ -19,11 +19,17 @@ class App extends Component {
     deckCards: [],
   };
 
+  checkIfHasTrunfo = () => {
+    const { deckCards } = this.state;
+    const xomps = deckCards.some((cardInfo) => cardInfo.cardTrunfo === true);
+    if (xomps) this.setState({ hasTrunfo: true });
+    else this.setState({ hasTrunfo: false });
+  }
+
   // this.state vai pegar o state todo
   // Esta função que irá salvar a carta criada no deck.
   submitCardToDeck = (event) => {
     event.preventDefault();
-
     this.setState((previousState) => ({
       deckCards: [...previousState.deckCards, previousState],
       cardName: '',
@@ -35,12 +41,7 @@ class App extends Component {
       cardRare: '',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-    }));
-
-    const { deckCards } = this.state;
-    const xomps = deckCards.some((cardInfo) => cardInfo.cardTrunfo === true);
-    if (xomps) this.setState({ hasTrunfo: true });
-    else this.setState({ hasTrunfo: false });
+    }), this.checkIfHasTrunfo);
   }
 
   checkIfSaveCanEnable = () => {
